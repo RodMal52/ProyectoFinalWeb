@@ -25,7 +25,7 @@ class CreateTableCandidateEventsController < ApplicationController
     @create_table_candidate_event = CreateTableCandidateEvent.new(create_table_candidate_event_params)
     respond_to do |format|
       if @create_table_candidate_event.save
-        qr = RQRCode::QRCode.new("http://eventostec-cem.herokuapp.com"+edit_create_table_candidate_event_path(@create_table_candidate_event), :size => 7, :level => :h )
+        qr = RQRCode::QRCode.new("http://eventostec-cem.herokuapp.com"+edit_create_table_candidate_event_path(@create_table_candidate_event), :size => 8, :level => :h )
         png = qr.to_img                                             # returns an instance of ChunkyPNG
         png.resize(90, 90).save("app/assets/images/#{@create_table_candidate_event.id}_qr.png")
         StudentMailer.registration_email(@account, @create_table_candidate_event).deliver
