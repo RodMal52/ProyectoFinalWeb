@@ -1,0 +1,20 @@
+== README
+
+Instalacion
+
+bundle install
+rake db:migrate
+rake db:seed
+
+Notas:
+*Puedes editar el archivo config/aplication.yml para poner las credenciales de tu admin antes de crearlo
+*Tiene ya instalado bootstrap, sin embargo no me meti mucho con el estilo
+*Ya esta separado el modelo como lo querias, el login en el modelo de account y lo del usuario en candidate.
+*Existe un admin panel en /admin, aunque solo puedes ingresar si tienes el rol de admin (lo otorga un admin existente o a traves del archivo application.yml)
+*Desde el admin, se pueden crear eventos y filtrar las estadisticas de asistencias y dem[as. este ya tiene styling, por lo que no es necesario editarlo. Si quieres editarlo esta hecho con una gem llamada rails_admin. En su git viene toda la documentacion
+*Me falta hacerle limpieza a la aplicacion: hay muchas vistas que no se ocupan que fue dejando de usar a traves del desarrollo. no las he quitado para no romper nada pero no he tenido tiempo de ver cuales no se usan
+*Si mal no recuerdo, en views/home/index.html.erb esta la landing page antes de login, en views/home/eventos.html.erb esta la de despues de login. En views/devise/registrations/new.html.erb esta el signup. el edit de la misma carpeta es el link de editar perfil. Finalmente el login esta en views/devise/sessions/new.html.erb
+*Los correos estan en views/student_mailer
+*Por el momento el qr se genera con la direccion ya de produccion por lo que el link no servira en local
+*NOTE TO SELF: Hay un modelo con nombre raro (create_table_candidate_event) que habia hecho inicalmente como una migracion y me arrepenti e hice scaffold. Necesito refactorizarlo
+

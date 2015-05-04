@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ProyectoFinal</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <div class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container" >
+          <%= render 'layouts/navigation' %> <!-- Renders the Nav bar with the proper links -->
+        </div>
+      </nav>
+    </div>
+    <div id="main" role="main">
+      <div class="container " >
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %> <!-- Renders any existing Alert notifications or errors -->
+              <%= yield %> <!-- Renders the complete view -->
+            </div>
+          </div>
+          
+        </div>
+      </div> 
+    </div> 
+    
+
+</body>
+</html>

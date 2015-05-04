@@ -1,0 +1,29 @@
+<h1>Listing create_table_candidate_events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Event</th>
+      <th>Assistance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @create_table_candidate_events.each do |create_table_candidate_event| %>
+      <tr>
+        <td><%= create_table_candidate_event.candidate %></td>
+        <td><%= create_table_candidate_event.event %></td>
+        <td><%= create_table_candidate_event.assistance %></td>
+        <td><%= link_to 'Show', create_table_candidate_event %></td>
+        <td><%= link_to 'Edit', edit_create_table_candidate_event_path(create_table_candidate_event) %></td>
+        <td><%= link_to 'Destroy', create_table_candidate_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Create table candidate event', new_create_table_candidate_event_path %>

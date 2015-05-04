@@ -1,0 +1,20 @@
+<%= form_for(@create_table_candidate_event) do |f| %>
+  <% if @create_table_candidate_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@create_table_candidate_event.errors.count, "error") %> prohibited this create_table_candidate_event from being saved:</h2>
+
+      <ul>
+      <% @create_table_candidate_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>Asistencia: <%= f.check_box :assistance %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

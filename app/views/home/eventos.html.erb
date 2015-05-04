@@ -1,0 +1,29 @@
+<h1>Eventos Disponibles</h1>
+
+
+<table data-toggle="table"  data-cache="false" data-height="299">
+    <thead>
+        <tr>
+            <th data-field="name">Nombre del Evento</th>
+            <th data-field="desc">Descripcion</th>
+            <th data-field="date">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td> <%= form_for(@create_table_candidate_event) do |f| %>
+                <%=f.hidden_field :candidate_id, :value => current_account.candidate.id %>
+                <%=f.hidden_field :event_id, :value => event.id %>
+                <%=f.hidden_field :assistance, :value => false %>
+                <%= f.submit 'Reservar Lugar' %>
+              <% end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

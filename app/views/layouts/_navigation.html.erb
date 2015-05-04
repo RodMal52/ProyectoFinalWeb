@@ -1,0 +1,17 @@
+
+<ul class="nav nav-pills pull-right">
+  <% if account_signed_in? %>
+    <li>
+    <%= link_to 'Editar Perfil', edit_account_registration_path %> 
+    </li>
+    
+    <li>
+    <%= link_to 'Cerrar Sesión', destroy_account_session_path, :method=>'delete' %>  
+    </li>
+  <% else %>
+    <li>
+    <%= link_to 'Iniciar Sesión', new_account_session_path %>  <!--link to login page-->      
+    </li>
+    <li><%= link_to "Registrarse", new_account_registration_path %></li>
+  <% end %>
+</ul>

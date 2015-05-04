@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Candidate:</strong>
+  <%= @create_table_candidate_event.candidate %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @create_table_candidate_event.event %>
+</p>
+
+<p>
+  <strong>Assistance:</strong>
+  <%= @create_table_candidate_event.assistance %>
+</p>
+
+<%= link_to 'Edit', edit_create_table_candidate_event_path(@create_table_candidate_event) %> |
+<%= link_to 'Back', create_table_candidate_events_path %>
