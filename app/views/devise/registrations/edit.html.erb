@@ -1,64 +1,69 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editar Perfil</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <%=f.fields_for :candidate do |c|%>
+<div class="container registration">
+  <div class="right">
     <div class="field">
-      <p>Nombre: </p>
-      <%= c.text_field :name %>
+      <p>Correo electrónico: </p>
+      <%= f.email_field :email, autofocus: true %>
     </div>
+  
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+  
     <div class="field">
-      <p>Apellidos: </p>
-      <%= c.text_field :last_name %>
+      <p>Contraseña: <i>(Deja en blanco si no deseas cambiar tu contraseña)</i></p>
+      <%= f.password_field :password, autocomplete: "off" %>
     </div>
+  
     <div class="field">
-      <p>Tel[efono Celular: </p>
-      <%= c.text_field :cellphone %>
+      <p>Confirmar contraseña: </p>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
-    <div class="field">
-      <p>Carrera de interes 1</p>
-      <%= c.text_field :carreer1 %>
+  
+    <%=f.fields_for :candidate do |c|%>
+      <div class="field">
+        <p>Nombre: </p>
+        <%= c.text_field :name %>
+      </div>
+      <div class="field">
+        <p>Apellidos: </p>
+        <%= c.text_field :last_name %>
+      </div>
     </div>
-     <div class="field">
-       <p>Carrera de interes 2</p>
-      <%= c.text_field :carreer2 %>
-    </div>
-     <div class="field">
-       <p>Carrera de interes 3</p>
-      <%= c.text_field :carreer3 %>
+    <div class="left">
+      <div class="field">
+        <p>Teléfono celular: </p>
+        <%= c.text_field :cellphone %>
+      </div>
+      <div class="field">
+        <p>Carrera de interés 1</p>
+        <%= c.text_field :carreer1 %>
+      </div>
+       <div class="field">
+         <p>Carrera de interés 2</p>
+        <%= c.text_field :carreer2 %>
+      </div>
+       <div class="field">
+         <p>Carrera de interés 3</p>
+        <%= c.text_field :carreer3 %>
+      </div>
     </div>
   <%end%>
-
-  <div class="field">
-    <p>Password actual </p> <i>(Necesitamos tu password actual para efectuar los cambios)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+  
+  <div class="field">
+      <p>Contraseña actual: <i>(Necesitamos tu contraseña actual para efectuar los cambios)</i></p>
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class => "btn field-btn" %>
   </div>
 <% end %>
 
-
-
-<%= link_to "Regresar", :back %>
+<div class="shared-links">
+  <%= link_to "Regresar", :back %>
+</div>

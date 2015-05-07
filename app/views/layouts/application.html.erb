@@ -7,13 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <div class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container" >
-          <%= render 'layouts/navigation' %> <!-- Renders the Nav bar with the proper links -->
-        </div>
-      </nav>
+  <header class="container">
+    <div class="header-media">
+      <%= image_tag("tec.png", :alt => "Tecnológico de Monterrey", :class => "header-media-left") %>
+      <span class="header-media-body header-media-heading">Campus Estado de México</span>
+      <%= image_tag("banner.jpg", :alt => "CEDETEC", :class => "header-media-right") %>
     </div>
+  </header>
+  
+<div class="navbar navbar-default">
+    <div class="container" >
+      <%= render 'layouts/navigation' %> <!-- Renders the Nav bar with the proper links -->
+    </div>
+  </div>
     <div id="main" role="main">
       <div class="container " >
         <div class="content">

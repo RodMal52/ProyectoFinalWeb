@@ -17,3 +17,62 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container { min-width: 760px; }
+
+/* navbar */
+.navbar { background: #069; min-width: 760px; }
+
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #FFF; 
+    background-color: #00527A;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #005C8A;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #FFF;
+    background-color: #005C8A;
+}
+
+header { margin: 0px; padding: 0px; height: 93px; over: hidden; }
+.header-media { display: inline-block; overflow: hidden; height: 93px; padding: 0px; margin: 0px; }
+
+.header-media-left { vertical-align: middle; }
+.header-media-right { vertical-align: middle; margin-right: 0px; margin-left: auto; }
+.header-media-body { display: inline-block; vertical-align: middle; margin-left: 50px; margin-right: 10px; }
+.header-media-heading { font-family: "Open Sans", "Helvetica", "sans-serif"; font-size: 20px; font-weight: 300; color: #464646; }
+
+.media-center { background: #069; margin-top: 15px; overflow: hidden; }
+
+/* jumbotron */
+.jumbotron > h1 { margin-top: 0px; color: #464646; }
+.jumbotron > h2 { margin-top: 5px; margin-bottom: 20px; color: #404040; }
+.jumbotron > .btn { color: #FFF; background: #069;}
+.jumbotron > .btn:hover { background: #00527A; }
+
+/* registration */
+.field > input { width: 300px; }
+.field-btn:hover { background: #069; color: #FFF; }
+.check-box { margin-bottom: 20px; }
+.registration { display: inline-block; margin-top: 15px; margin-bottom: 10px; }
+.registration > .right { margin-right: 25px; float: left; }
+
+/* shared-links */
+.shared-links > a,
+.shared-links > a:visited { color: #5F5F5F; }
+.shared-links > a:hover { background: #FFF; color: #069; }
+
+.alert { background: #009900; color: #FFF; }
+.alert > .close,
+.alert > .close:hover { background: #009900; }
+.alert > .close:hover { color: #FFF; }

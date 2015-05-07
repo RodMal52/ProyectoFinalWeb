@@ -3,52 +3,57 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  <%=f.fields_for :candidate do |c|%>
+<div class="container registration">
+  <div class="right">
     <div class="field">
-      <p>Nombre: </p>
-      <%= c.text_field :name %>
+      <p>Correo electrónico: </p>
+      <%= f.email_field :email, autofocus: true %>
     </div>
     <div class="field">
-      <p>Apellidos: </p>
-      <%= c.text_field :last_name %>
+      <p>Contraseña: </p>
+      <% if @validatable %>
+      <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <div class="field">
-      <p>Tel[efono Celular: </p>
+      <p>Confirmar contraseña: </p>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+    <%=f.fields_for :candidate do |c|%>
+      <div class="field">
+        <p>Nombre: </p>
+        <%= c.text_field :name %>
+      </div>
+      <div class="field">
+        <p>Apellidos: </p>
+        <%= c.text_field :last_name %>
+      </div>
+    </div>
+    <div class="left">
+    <div class="field">
+      <p>Teléfono celular: </p>
       <%= c.text_field :cellphone %>
     </div>
     <div class="field">
-      <p>Carrera de interes 1</p>
-      <%= c.text_field :carreer1 %>
+      <p>Carrera de interés 1</p>
+      <%= c.select :carreer1, options_for_select(%w[LAE LAF LCDE LCPF LDF LDN LDP LEC LED LEF LEM LIN LLN LMC LPM IMD LNB LPS MC MO LAD LCMD LLE LMI LP LPL LPO LRI ARQ IA IBN IBT IC IDA IDS IFI IIA IID IIS IMA IMI IMT INCQ IQA IQP LDI INT ISC ISDR ITC ITE ITIC ITS]) %>
+      
     </div>
      <div class="field">
-       <p>Carrera de interes 2</p>
-      <%= c.text_field :carreer2 %>
+       <p>Carrera de interés 2</p>
+      <%= c.select :carreer2, options_for_select(%w[LAE LAF LCDE LCPF LDF LDN LDP LEC LED LEF LEM LIN LLN LMC LPM IMD LNB LPS MC MO LAD LCMD LLE LMI LP LPL LPO LRI ARQ IA IBN IBT IC IDA IDS IFI IIA IID IIS IMA IMI IMT INCQ IQA IQP LDI INT ISC ISDR ITC ITE ITIC ITS]) %>
     </div>
-     <div class="field">
-       <p>Carrera de interes 3</p>
-      <%= c.text_field :carreer3 %>
+    <div class="field">
+       <p>Carrera de interés 3</p>
+      <%= c.select :carreer3, options_for_select(%w[LAE LAF LCDE LCPF LDF LDN LDP LEC LED LEF LEM LIN LLN LMC LPM IMD LNB LPS MC MO LAD LCMD LLE LMI LP LPL LPO LRI ARQ IA IBN IBT IC IDA IDS IFI IIA IID IIS IMA IMI IMT INCQ IQA IQP LDI INT ISC ISDR ITC ITE ITIC ITS]) %>
     </div>
   <%end%>
+  </div>
+</div>
 
   <div class="actions">
-    <%= f.submit "Registrar" %>
+    <%= f.submit "Registrar", :class => "btn field-btn" %>
   </div>
 <% end %>
 

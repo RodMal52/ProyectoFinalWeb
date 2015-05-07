@@ -1,17 +1,20 @@
-
-<ul class="nav nav-pills pull-right">
+<div class="navbar-header">
+</div>
+<div class="collapse navbar-collapse" id="bs-layout-navbar-collapse">
+  <ul class="nav navbar-nav">
   <% if account_signed_in? %>
-    <li>
-    <%= link_to 'Editar Perfil', edit_account_registration_path %> 
-    </li>
-    
-    <li>
-    <%= link_to 'Cerrar Sesión', destroy_account_session_path, :method=>'delete' %>  
-    </li>
+    <li><%= link_to 'Inicio', authenticated_root_path, :class => "home-link" %></li>
   <% else %>
-    <li>
-    <%= link_to 'Iniciar Sesión', new_account_session_path %>  <!--link to login page-->      
-    </li>
+    <li><%= link_to 'Inicio', unauthenticated_root_path, :class => "home-link" %></li>
+  <% end %>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+  <% if account_signed_in? %>
+    <li><%= link_to 'Editar Perfil', edit_account_registration_path %></li>
+    <li><%= link_to 'Cerrar Sesión', destroy_account_session_path, :method=>'delete' %></li>
+  <% else %>
+    <li><%= link_to 'Iniciar Sesión', new_account_session_path %></li>  <!--link to login page-->
     <li><%= link_to "Registrarse", new_account_registration_path %></li>
   <% end %>
-</ul>
+  <ul class="nav navbar-nav navbar-right">
+</div>

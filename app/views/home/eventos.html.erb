@@ -1,12 +1,16 @@
-<h1>Eventos Disponibles</h1>
-
-
-<table data-toggle="table"  data-cache="false" data-height="299">
+<div class="panel panel-default">
+    <div class="panel-heading"><h1>Eventos disponibles</h1></div>
+    <div class="panel-body">
+        <p>A continuación se muestran los próximos eventos. <b>No olvides reservar tu lugar para asistir a alguno de ellos.</b></p>
+    </div>
+    
+    <table class="table" data-toggle="table" data-cache="false" data-height="299">
     <thead>
         <tr>
-            <th data-field="name">Nombre del Evento</th>
-            <th data-field="desc">Descripcion</th>
+            <th data-field="name">Nombre del evento</th>
+            <th data-field="desc">Descripción</th>
             <th data-field="date">Fecha</th>
+            <th>Reservar</th>
         </tr>
     </thead>
     <tbody>
@@ -19,11 +23,10 @@
                 <%=f.hidden_field :candidate_id, :value => current_account.candidate.id %>
                 <%=f.hidden_field :event_id, :value => event.id %>
                 <%=f.hidden_field :assistance, :value => false %>
-                <%= f.submit 'Reservar Lugar' %>
+                <%= f.submit 'Reserva tu lugar', :class => "btn field-btn" %>
               <% end%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
+</div>

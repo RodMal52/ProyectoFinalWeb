@@ -18,6 +18,18 @@ class CreateTableCandidateEventsController < ApplicationController
   end
 
   def edit
+    unless current_account.roles.first.nil?
+      case current_account.roles.first.name #Checks the role of current user
+        when 'admin'  #If the role is admin it sends them to users_path, which is the pseudo admin screen
+          
+        
+        else #if there is no role, user is redirected to the root
+          
+          redirect_to authenticated_root_path
+      end
+    else
+        redirect_to authenticated_root_path
+    end
   end
 
   def create
@@ -39,8 +51,15 @@ class CreateTableCandidateEventsController < ApplicationController
   end
 
   def update
-    @create_table_candidate_event.update(create_table_candidate_event_params)
-    respond_with(@create_table_candidate_event)
+    respond_to do |format|
+      if @create_table_candidate_event.update(create_table_candidate_event_params)
+        format.html { redirect_to rails_admin_path, notice: 'La asistencia ha sido registrada.' }
+        format.json { render :show, status: :ok, location: @create_table_candidate_event }
+      else
+        format.html { render :edit }
+        format.json { render json: @create_table_candidate_event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
